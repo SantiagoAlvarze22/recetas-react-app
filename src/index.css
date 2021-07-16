@@ -35,3 +35,18 @@
 /* .icon-color {
   color: orange; 
 /* } */
+
+.inputSearch {
+  width: 500px;
+}
+
+.btn-search {
+  width: 200px;
+}
+
+.form-search {
+  top: 25%;
+}
+
+.searchRecipes {
+}
