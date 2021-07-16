@@ -31,3 +31,7 @@
 .wrapper-grid--item:nth-child(10) {
   grid-column-start: span 2;
 }
+
+/* .icon-color {
+  color: orange; 
+/* } */
