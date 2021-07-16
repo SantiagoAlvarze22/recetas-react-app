@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 export const Form = () => {
+  const history = useHistory();
   const [user, setUser] = useState({
     email: '',
     password: '',
@@ -8,18 +11,31 @@ export const Form = () => {
 
   const { email, password } = user;
 
-  const loginApp = (e) => {
+  const onChange = (e) => {
     setUser({
       ...user,
       [e.target.name]: e.target.value,
     });
+  };
 
-    console.log(e.target.value);
+  const loginApp = (e) => {
+    e.preventDefault();
+    if (email === 'admin@admin.com' && password === '123') {
+      history.push('/main');
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+        footer: '<a href="">Why do I have this issue?</a>',
+      });
+      setUser({ email: '', password: '' });
+    }
   };
 
   return (
     <div>
-      <form>
+      <form onSubmit={loginApp}>
         <div className='mb-3'>
           <input
             type='email'
@@ -28,7 +44,7 @@ export const Form = () => {
             value={email}
             autoFocus
             className='form-control'
-            onChange={loginApp}
+            onChange={onChange}
           />
         </div>
         <div className='mb-3'>
@@ -38,7 +54,7 @@ export const Form = () => {
             name='password'
             value={password}
             className='form-control'
-            onChange={loginApp}
+            onChange={onChange}
           />
         </div>
         <button className='btn btn-primary' type='submit'>
