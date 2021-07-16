@@ -1,8 +1,15 @@
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { LoginPage } from './components/auth/LoginPage';
+import { MainPage } from './components/layout/MainPage';
+
 function App() {
   return (
-    <div className='App'>
-      <h1>App</h1>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path='/' component={LoginPage} />
+        <Route exact path='/main' component={MainPage} />
+      </Switch>
+    </Router>
   );
 }
 
