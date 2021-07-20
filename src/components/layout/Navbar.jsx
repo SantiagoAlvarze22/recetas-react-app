@@ -1,16 +1,26 @@
 import React from 'react';
+import { useUser } from '../../context/UserContext';
 
 export const Navbar = () => {
+  const { setLogin } = useUser();
+
+  const exit = () => {
+    setLogin(false);
+    sessionStorage.setItem('login', false);
+  };
   return (
     <div>
-      <nav className='navbar  navbar-expand-lg navbar-dark bg-dark'>
+      <nav
+        className='navbar  navbar-expand-lg navbar-dark bg-dark'
+        id='navbarSupportedContent'
+      >
         <div className='container-fluid '>
-          <a className='navbar-brand' href='#'>
+          <div className='navbar-brand'>
             <span className='icon-color p-2'>
               <i className='fas fa-utensils'></i>
             </span>
             UnaEmpresaPorAhi
-          </a>
+          </div>
           <button
             className='navbar-toggler'
             type='button'
@@ -22,17 +32,12 @@ export const Navbar = () => {
           >
             <span className='navbar-toggler-icon'></span>
           </button>
-          <div className='collapse navbar-collapse me-auto' id='navbarNav'>
-            <ul className='navbar-nav ms-auto'>
-              <li className='nav-item '>
-                <a className='nav-link active' aria-current='page' href='#'>
-                  Home
-                </a>
-              </li>
+          <div className='collapse navbar-collapse ' id='navbarNav'>
+            <ul className='navbar-nav ms-auto mb-2 mb-lg-0'>
               <li className='nav-item'>
-                <a className='nav-link' href='#'>
-                  About us
-                </a>
+                <button className=' btn nav-link' onClick={exit}>
+                  Salir
+                </button>
               </li>
             </ul>
           </div>

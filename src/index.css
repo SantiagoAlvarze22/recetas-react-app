@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+body {
+  background-color: #f8f8f8fa !important ;
+}
+.text-title-login {
+  font-family: 'Fredoka One', cursive;
+}
+
 .wrapper-grid {
   /* position: absolute; */
   height: 100vh;
@@ -12,6 +20,10 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+img {
+  width: 20rem !important;
 }
 
 .wrapper-grid--item:nth-child(4) {
@@ -32,10 +44,6 @@
   grid-column-start: span 2;
 }
 
-/* .icon-color {
-  color: orange; 
-/* } */
-
 .inputSearch {
   width: 500px;
 }
@@ -45,8 +53,55 @@
 }
 
 .form-search {
-  top: 25%;
+  margin-top: 50px;
 }
 
-.searchRecipes {
+.form-input-size {
+  width: 25rem;
+}
+
+.btn-size-input {
+  width: 13rem;
+}
+
+.size-card-body {
+  max-width: 320px;
+}
+
+.card:hover {
+  transform: scale(1.04);
+  transition: 0.3s;
+}
+
+.card {
+  color: #3c5a6d !important;
+}
+.recipeCard {
+  margin: 0 auto;
+  width: 80%;
+}
+@media (max-width: 576px) {
+  .form-input-size {
+    width: 15rem;
+  }
+
+  .btn-size-input {
+    width: 8rem;
+  }
+
+  .inputSearch {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+  .btn-search {
+    width: 230px;
+    margin: 0 auto;
+  }
+
+  .form-search {
+    display: flex !important;
+    flex-direction: column;
+  }
 }
